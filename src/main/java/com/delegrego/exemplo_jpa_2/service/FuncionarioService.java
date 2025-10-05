@@ -32,7 +32,7 @@ public class FuncionarioService {
 	 * Create: Cadastra um novo funcionário no sistema.
 	 * 
 	 * @param f - O funcionário a ser cadastrado.
-	 * @throws RuntimeException se já existir um funcionário com o mesmo CPF ou se o
+	 * @throws RuntimeException se já existir um funcionário com o mesmo email ou se o
 	 *                          departamento não existir.
 	 */
 	public void cadastrarFuncionario(FuncionarioDto f) {
@@ -85,7 +85,7 @@ public class FuncionarioService {
 	 * 
 	 * @param f - O funcionário com as informações atualizadas.
 	 * @throws RuntimeException se o funcionário não existir, se já existir outro
-	 *                          funcionário com o mesmo CPF, ou se o departamento
+	 *                          funcionário com o mesmo email, ou se o departamento
 	 *                          não existir.
 	 */
 	public void atualizarFuncionario(FuncionarioDto f) {
