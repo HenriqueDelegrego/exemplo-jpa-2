@@ -10,15 +10,17 @@ public class FuncionarioDto {
 
 	private int idFuncionario;
 
-	@NotBlank
+	@NotBlank(message = "Nome não pode ser vazio")
 	@Size(max = 100, message = "Nome inválido")
 	private String nome;
 
+	@NotBlank(message = "Email não pode ser vazio")
+	@Size(max = 50, message = "Email não pode ultrapassar 50 caracteres")
 	@Email(message = "Email inválido")
 	private String email;
 
-	@NotBlank
-	@Size(max = 50, message = "Senha inválida")
+	@NotBlank(message = "Senha não pode ser vazia")
+	@Size(max = 50, message = "Senha não pode ultrapassar 50 caracteres")
 	private String senha;
 
 	@Digits(integer = 10, fraction = 2, message = "Salário inválido")

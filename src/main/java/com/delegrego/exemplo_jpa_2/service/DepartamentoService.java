@@ -13,6 +13,8 @@ import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
 import com.delegrego.exemplo_jpa_2.repo.DepartamentoRepository;
 import com.delegrego.exemplo_jpa_2.repo.FuncionarioRepository;
 
+import jakarta.validation.Valid;
+
 /**
  * Serviço para gerenciar operações relacionadas a Departamentos. Inclui métodos
  * para criar, ler, atualizar e deletar departamentos, além de validações
@@ -37,7 +39,7 @@ public class DepartamentoService {
 	 * 
 	 * @param d - O departamento a ser cadastrado.
 	 */
-	public void cadastrarDepartamento(DepartamentoDto d) {
+	public void cadastrarDepartamento(@Valid DepartamentoDto d) {
 
 		DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 		departamentoEntity.setNmDepartamento(d.getNmDepartamento());
