@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.delegrego.exemplo_jpa_2.dto.FuncionarioDto;
+import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
 import com.delegrego.exemplo_jpa_2.entity.FuncionarioEntity;
 import com.delegrego.exemplo_jpa_2.repo.DepartamentoRepository;
 import com.delegrego.exemplo_jpa_2.repo.FuncionarioRepository;
@@ -41,14 +42,14 @@ public class FuncionarioService {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		departamentoRepo.findById(f.getIdDepartamento())
-				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
+		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(f.getIdDepartamento());
 
 		FuncionarioEntity funcionario = new FuncionarioEntity();
 		funcionario.setNome(f.getNome());
 		funcionario.setEmail(f.getEmail());
 		funcionario.setSenha(f.getSenha());
 		funcionario.setSalario(f.getSalario());
+		funcionario.setDepartamento(departamentoOptional.get());
 
 		funcionarioRepo.save(funcionario);
 	}
