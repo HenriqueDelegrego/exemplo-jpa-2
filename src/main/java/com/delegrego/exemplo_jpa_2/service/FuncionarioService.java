@@ -44,14 +44,18 @@ public class FuncionarioService {
 
 		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(f.getIdDepartamento());
 
-		FuncionarioEntity funcionario = new FuncionarioEntity();
-		funcionario.setNome(f.getNome());
-		funcionario.setEmail(f.getEmail());
-		funcionario.setSenha(f.getSenha());
-		funcionario.setSalario(f.getSalario());
-		funcionario.setDepartamento(departamentoOptional.get());
+		if (departamentoOptional.isPresent()) {
 
-		funcionarioRepo.save(funcionario);
+			FuncionarioEntity funcionario = new FuncionarioEntity();
+			funcionario.setNome(f.getNome());
+			funcionario.setEmail(f.getEmail());
+			funcionario.setSenha(f.getSenha());
+			funcionario.setSalario(f.getSalario());
+			funcionario.setDepartamento(departamentoOptional.get());
+
+			funcionarioRepo.save(funcionario);
+		}
+
 	}
 
 	/**
@@ -100,6 +104,8 @@ public class FuncionarioService {
 
 		Optional<FuncionarioEntity> funcionarioOptional = funcionarioRepo.findById(f.getIdFuncionario());
 
+		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(f.getIdDepartamento());
+
 		if (funcionarioOptional.isPresent()) {
 			FuncionarioEntity funcionario = funcionarioOptional.get();
 
@@ -107,6 +113,7 @@ public class FuncionarioService {
 			funcionario.setEmail(f.getEmail());
 			funcionario.setSenha(f.getSenha());
 			funcionario.setSalario(f.getSalario());
+			funcionario.setDepartamento(departamentoOptional.get());
 
 			funcionarioRepo.save(funcionario);
 
