@@ -76,16 +76,13 @@ public class DepartamentoService {
 	 */
 
 	// TODO: Fazer com que venha um id como parâmetro
-	// TODO: Refatorar
 	public void atualizarDepartamento(DepartamentoDto d) {
 
-		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(d.getIdDepartamento());
+		DepartamentoEntity departamento = departamentoRepo.findById(d.getIdDepartamento())
+				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		if (departamentoOptional.isPresent()) {
-			DepartamentoEntity departamento = departamentoOptional.get();
-			departamento.setNmDepartamento(d.getNmDepartamento());
-			departamentoRepo.save(departamento);
-		}
+		departamento.setNmDepartamento(d.getNmDepartamento());
+		departamentoRepo.save(departamento);
 
 	}
 
