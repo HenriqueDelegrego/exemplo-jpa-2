@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.delegrego.exemplo_jpa_2.dto.FuncionarioDto;
 import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
@@ -13,12 +14,15 @@ import com.delegrego.exemplo_jpa_2.entity.FuncionarioEntity;
 import com.delegrego.exemplo_jpa_2.repo.DepartamentoRepository;
 import com.delegrego.exemplo_jpa_2.repo.FuncionarioRepository;
 
+import jakarta.validation.Valid;
+
 /**
  * Serviço para gerenciar operações relacionadas a funcionários.
  */
 
 // Indica que esta classe é um serviço do Spring (camada de lógica de negócio)
 @Service
+@Validated
 public class FuncionarioService {
 
 	// Autowired injeta automaticamente a interface de repositório que acessa o
@@ -36,7 +40,7 @@ public class FuncionarioService {
 	 * @throws RuntimeException se já existir um funcionário com o mesmo email ou se
 	 *                          o departamento não existir.
 	 */
-	public void cadastrarFuncionario(FuncionarioDto f) {
+	public void cadastrarFuncionario(@Valid FuncionarioDto f) {
 
 		if (funcionarioRepo.findByEmail(f.getEmail()).isPresent()) {
 			throw new RuntimeException("Usuário com esse email já existe");

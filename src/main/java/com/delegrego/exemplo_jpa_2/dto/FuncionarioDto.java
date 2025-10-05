@@ -1,15 +1,28 @@
 package com.delegrego.exemplo_jpa_2.dto;
 
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
 public class FuncionarioDto {
 
 	private int idFuncionario;
 
+	@NotBlank
+	@Size(max = 100, message = "Nome inválido")
 	private String nome;
 
+	@Email(message = "Email inválido")
 	private String email;
 
+	@NotBlank
+	@Size(max = 50, message = "Senha inválida")
 	private String senha;
 
+	@Digits(integer = 10, fraction = 2, message = "Salário inválido")
+	@PositiveOrZero(message = "Salário não pode ser negativo")
 	private double salario;
 
 	private int idDepartamento;

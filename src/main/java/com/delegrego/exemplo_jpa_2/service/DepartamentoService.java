@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.delegrego.exemplo_jpa_2.dto.DepartamentoDto;
 import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
@@ -20,6 +21,7 @@ import com.delegrego.exemplo_jpa_2.repo.FuncionarioRepository;
 
 // Indica que esta classe é um serviço do Spring (camada de lógica de negócio)
 @Service
+@Validated
 public class DepartamentoService {
 
 	// Autowired injeta automaticamente a interface de repositório que acessa o
