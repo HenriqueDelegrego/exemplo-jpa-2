@@ -7,7 +7,8 @@ CREATE TABLE departamento (
 CREATE TABLE funcionario (
 	id_funcionario INTEGER AUTO_INCREMENT,
 	nome VARCHAR(100) NOT NULL,
-	cpf CHAR(11) NOT NULL UNIQUE,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	senha VARCHAR(50) NOT NULL,
 	salario DECIMAL(10, 2),
 	id_departamento INTEGER,
 	PRIMARY KEY(id_funcionario),
