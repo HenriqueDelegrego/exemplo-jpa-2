@@ -50,11 +50,12 @@ public class DepartamentoService {
 	public List<DepartamentoDto> listarDepartamentos() {
 		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo.findAll();
 
-		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<DepartamentoDto>();
+		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
 
 		for (DepartamentoEntity d : listaDepartamentoEntity) {
 			DepartamentoDto departamentoDto = new DepartamentoDto();
-
+			
+			departamentoDto.setIdDepartamento(d.getIdDepartamento());
 			departamentoDto.setNmDepartamento(d.getNmDepartamento());
 
 			listaDepartamentoDto.add(departamentoDto);
