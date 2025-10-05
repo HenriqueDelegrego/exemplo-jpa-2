@@ -54,7 +54,7 @@ public class DepartamentoService {
 
 		for (DepartamentoEntity d : listaDepartamentoEntity) {
 			DepartamentoDto departamentoDto = new DepartamentoDto();
-			
+
 			departamentoDto.setIdDepartamento(d.getIdDepartamento());
 			departamentoDto.setNmDepartamento(d.getNmDepartamento());
 
