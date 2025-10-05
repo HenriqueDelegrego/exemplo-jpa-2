@@ -65,7 +65,6 @@ public class Controller implements CommandLineRunner {
 		funcionarioNovo.setSenha("senha_joao");
 		funcionarioNovo.setSalario(5000);
 		funcionarioNovo.setIdDepartamento(departamentoFuncionario.getIdDepartamento());
-		;
 		funcionarioService.cadastrarFuncionario(funcionarioNovo);
 
 		// Read
