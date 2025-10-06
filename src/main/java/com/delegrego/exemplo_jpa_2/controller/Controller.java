@@ -56,23 +56,19 @@ public class Controller implements CommandLineRunner {
 		// CRUD para Funcionario
 
 		// Create
-		DepartamentoDto departamentoFuncionario = new DepartamentoDto();
-		departamentoFuncionario.setIdDepartamento(1);
 
 		FuncionarioDto funcionarioNovo = new FuncionarioDto();
 		funcionarioNovo.setNome("João");
 		funcionarioNovo.setEmail("joao@email.com");
 		funcionarioNovo.setSenha("senha_joao");
 		funcionarioNovo.setSalario(5000);
-		funcionarioNovo.setIdDepartamento(departamentoFuncionario.getIdDepartamento());
+		funcionarioNovo.setIdDepartamento(1);
 		funcionarioService.cadastrarFuncionario(funcionarioNovo);
 
 		// Read
 		System.out.println(funcionarioService.listarFuncionarios());
 
 		// Update
-		DepartamentoDto departamentoFuncionarioAtualizado = new DepartamentoDto();
-		departamentoFuncionarioAtualizado.setIdDepartamento(2);
 
 		FuncionarioDto funcionarioAtualizado = new FuncionarioDto();
 		funcionarioAtualizado.setIdFuncionario(1);
@@ -80,7 +76,7 @@ public class Controller implements CommandLineRunner {
 		funcionarioAtualizado.setEmail("novojoao@email.com");
 		funcionarioAtualizado.setSenha("senha_joao_novo");
 		funcionarioAtualizado.setSalario(5500);
-		funcionarioAtualizado.setIdDepartamento(departamentoFuncionarioAtualizado.getIdDepartamento());
+		funcionarioAtualizado.setIdDepartamento(2);
 		funcionarioService.atualizarFuncionario(funcionarioAtualizado);
 
 		// Delete
