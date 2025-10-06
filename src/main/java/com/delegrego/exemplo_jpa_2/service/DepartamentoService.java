@@ -44,6 +44,7 @@ public class DepartamentoService {
 		DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 		departamentoEntity.setNmDepartamento(d.getNmDepartamento());
 		departamentoRepo.save(departamentoEntity);
+
 	}
 
 	/**
