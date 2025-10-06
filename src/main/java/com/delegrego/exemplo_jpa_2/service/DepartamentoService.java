@@ -22,6 +22,7 @@ import jakarta.validation.Valid;
 
 // Indica que esta classe é um serviço do Spring (camada de lógica de negócio)
 @Service
+// Habilita a validação de métodos nesta classe
 @Validated
 public class DepartamentoService {
 
