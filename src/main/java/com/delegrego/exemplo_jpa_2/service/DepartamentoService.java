@@ -36,12 +36,12 @@ public class DepartamentoService {
 	/**
 	 * Create: Cadastra um novo departamento no sistema.
 	 * 
-	 * @param d - O departamento a ser cadastrado.
+	 * @param departamentoDto - O departamento a ser cadastrado.
 	 */
-	public void cadastrarDepartamento(@Valid DepartamentoDto d) {
+	public void cadastrarDepartamento(@Valid DepartamentoDto departamentoDto) {
 
 		DepartamentoEntity departamentoEntity = new DepartamentoEntity();
-		departamentoEntity.setNmDepartamento(d.getNmDepartamento());
+		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
 		departamentoRepo.save(departamentoEntity);
 
 	}
@@ -71,18 +71,18 @@ public class DepartamentoService {
 	/**
 	 * Update: Atualiza as informações de um departamento existente.
 	 * 
-	 * @param d - O departamento com as informações atualizadas.
+	 * @param departamentoDto - O departamento com as informações atualizadas.
 	 * @throws RuntimeException se o departamento não existir.
 	 */
 
 	// TODO: Fazer com que venha um id como parâmetro
-	public void atualizarDepartamento(DepartamentoDto d) {
+	public void atualizarDepartamento(DepartamentoDto departamentoDto) {
 
-		DepartamentoEntity departamento = departamentoRepo.findById(d.getIdDepartamento())
+		DepartamentoEntity departamentoEntity = departamentoRepo.findById(departamentoDto.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		departamento.setNmDepartamento(d.getNmDepartamento());
-		departamentoRepo.save(departamento);
+		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
+		departamentoRepo.save(departamentoEntity);
 
 	}
 
