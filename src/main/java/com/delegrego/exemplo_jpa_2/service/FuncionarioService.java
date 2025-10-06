@@ -2,7 +2,6 @@ package com.delegrego.exemplo_jpa_2.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,19 +45,17 @@ public class FuncionarioService {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(f.getIdDepartamento());
+		DepartamentoEntity departamento = departamentoRepo.findById(f.getIdDepartamento())
+				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		if (departamentoOptional.isPresent()) {
+		FuncionarioEntity funcionario = new FuncionarioEntity();
+		funcionario.setNome(f.getNome());
+		funcionario.setEmail(f.getEmail());
+		funcionario.setSenha(f.getSenha());
+		funcionario.setSalario(f.getSalario());
+		funcionario.setDepartamento(departamento);
 
-			FuncionarioEntity funcionario = new FuncionarioEntity();
-			funcionario.setNome(f.getNome());
-			funcionario.setEmail(f.getEmail());
-			funcionario.setSenha(f.getSenha());
-			funcionario.setSalario(f.getSalario());
-			funcionario.setDepartamento(departamentoOptional.get());
-
-			funcionarioRepo.save(funcionario);
-		}
+		funcionarioRepo.save(funcionario);
 
 	}
 
@@ -99,29 +96,23 @@ public class FuncionarioService {
 	 */
 	public void atualizarFuncionario(FuncionarioDto f) {
 
+		FuncionarioEntity funcionario = funcionarioRepo.findById(f.getIdFuncionario())
+				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
+
 		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(f.getEmail(), f.getIdFuncionario())) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		departamentoRepo.findById(f.getIdDepartamento())
+		DepartamentoEntity departamento = departamentoRepo.findById(f.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		Optional<FuncionarioEntity> funcionarioOptional = funcionarioRepo.findById(f.getIdFuncionario());
+		funcionario.setNome(f.getNome());
+		funcionario.setEmail(f.getEmail());
+		funcionario.setSenha(f.getSenha());
+		funcionario.setSalario(f.getSalario());
+		funcionario.setDepartamento(departamento);
 
-		Optional<DepartamentoEntity> departamentoOptional = departamentoRepo.findById(f.getIdDepartamento());
-
-		if (funcionarioOptional.isPresent()) {
-			FuncionarioEntity funcionario = funcionarioOptional.get();
-
-			funcionario.setNome(f.getNome());
-			funcionario.setEmail(f.getEmail());
-			funcionario.setSenha(f.getSenha());
-			funcionario.setSalario(f.getSalario());
-			funcionario.setDepartamento(departamentoOptional.get());
-
-			funcionarioRepo.save(funcionario);
-
-		}
+		funcionarioRepo.save(funcionario);
 
 	}
 
