@@ -35,27 +35,27 @@ public class FuncionarioService {
 	/**
 	 * Create: Cadastra um novo funcionário no sistema.
 	 * 
-	 * @param f - O funcionário a ser cadastrado.
+	 * @param funcionarioDto - O funcionário a ser cadastrado.
 	 * @throws RuntimeException se já existir um funcionário com o mesmo email ou se
 	 *                          o departamento não existir.
 	 */
-	public void cadastrarFuncionario(@Valid FuncionarioDto f) {
+	public void cadastrarFuncionario(@Valid FuncionarioDto funcionarioDto) {
 
-		if (funcionarioRepo.findByEmail(f.getEmail()).isPresent()) {
+		if (funcionarioRepo.findByEmail(funcionarioDto.getEmail()).isPresent()) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		DepartamentoEntity departamento = departamentoRepo.findById(f.getIdDepartamento())
+		DepartamentoEntity departamentoEntity = departamentoRepo.findById(funcionarioDto.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		FuncionarioEntity funcionario = new FuncionarioEntity();
-		funcionario.setNome(f.getNome());
-		funcionario.setEmail(f.getEmail());
-		funcionario.setSenha(f.getSenha());
-		funcionario.setSalario(f.getSalario());
-		funcionario.setDepartamento(departamento);
+		FuncionarioEntity funcionarioEntity = new FuncionarioEntity();
+		funcionarioEntity.setNome(funcionarioDto.getNome());
+		funcionarioEntity.setEmail(funcionarioDto.getEmail());
+		funcionarioEntity.setSenha(funcionarioDto.getSenha());
+		funcionarioEntity.setSalario(funcionarioDto.getSalario());
+		funcionarioEntity.setDepartamento(departamentoEntity);
 
-		funcionarioRepo.save(funcionario);
+		funcionarioRepo.save(funcionarioEntity);
 
 	}
 
@@ -89,31 +89,31 @@ public class FuncionarioService {
 	/**
 	 * Update: Atualiza as informações de um funcionário existente.
 	 * 
-	 * @param f - O funcionário com as informações atualizadas.
+	 * @param funcionarioDto - O funcionário com as informações atualizadas.
 	 * @throws RuntimeException se o funcionário não existir, se já existir outro
 	 *                          funcionário com o mesmo email, ou se o departamento
 	 *                          não existir.
 	 */
-	public void atualizarFuncionario(FuncionarioDto f) {
+	public void atualizarFuncionario(FuncionarioDto funcionarioDto) {
 
-		FuncionarioEntity funcionario = funcionarioRepo.findById(f.getIdFuncionario())
+		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(funcionarioDto.getIdFuncionario())
 				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
 
 		// TODO: Refatorar?
-		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(f.getEmail(), f.getIdFuncionario())) {
+		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(), funcionarioDto.getIdFuncionario())) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		DepartamentoEntity departamento = departamentoRepo.findById(f.getIdDepartamento())
+		DepartamentoEntity departamentoEntity = departamentoRepo.findById(funcionarioDto.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		funcionario.setNome(f.getNome());
-		funcionario.setEmail(f.getEmail());
-		funcionario.setSenha(f.getSenha());
-		funcionario.setSalario(f.getSalario());
-		funcionario.setDepartamento(departamento);
+		funcionarioEntity.setNome(funcionarioDto.getNome());
+		funcionarioEntity.setEmail(funcionarioDto.getEmail());
+		funcionarioEntity.setSenha(funcionarioDto.getSenha());
+		funcionarioEntity.setSalario(funcionarioDto.getSalario());
+		funcionarioEntity.setDepartamento(departamentoEntity);
 
-		funcionarioRepo.save(funcionario);
+		funcionarioRepo.save(funcionarioEntity);
 
 	}
 
