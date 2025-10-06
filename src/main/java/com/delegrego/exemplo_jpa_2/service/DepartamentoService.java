@@ -94,7 +94,6 @@ public class DepartamentoService {
 	 * @throws RuntimeException se o departamento não existir ou se houver
 	 *                          funcionários associados.
 	 */
-	// TODO: Refatorar
 	public void deletarDepartamento(int id) {
 
 		departamentoRepo.findById(id).orElseThrow(() -> new RuntimeException("Departamento não existe"));
