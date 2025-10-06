@@ -77,8 +77,8 @@ public class Controller implements CommandLineRunner {
 		FuncionarioDto funcionarioAtualizado = new FuncionarioDto();
 		funcionarioAtualizado.setIdFuncionario(1);
 		funcionarioAtualizado.setNome("João Da Silva");
-		funcionarioNovo.setEmail("novojoao@email.com");
-		funcionarioNovo.setSenha("senha_joao_novo");
+		funcionarioAtualizado.setEmail("novojoao@email.com");
+		funcionarioAtualizado.setSenha("senha_joao_novo");
 		funcionarioAtualizado.setSalario(5500);
 		funcionarioAtualizado.setIdDepartamento(departamentoFuncionarioAtualizado.getIdDepartamento());
 		funcionarioService.atualizarFuncionario(funcionarioAtualizado);
