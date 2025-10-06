@@ -3,6 +3,10 @@ package com.delegrego.exemplo_jpa_2.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+/**
+ * DTO (Data Transfer Object) para representar um departamento.
+ * Inclui validações para garantir que os dados estejam corretos.
+ */
 public class DepartamentoDto {
 
 	private int idDepartamento;

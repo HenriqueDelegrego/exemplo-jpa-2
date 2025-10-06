@@ -6,6 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
+/**
+ * DTO (Data Transfer Object) para representar um funcionário.
+ * Inclui validações para garantir que os dados estejam corretos.
+ */
 public class FuncionarioDto {
 
 	private int idFuncionario;
