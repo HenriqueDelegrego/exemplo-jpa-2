@@ -101,7 +101,6 @@ public class FuncionarioService {
 		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(funcionarioDto.getIdFuncionario())
 				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
 
-		// TODO: Refatorar?
 		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(),
 				funcionarioDto.getIdFuncionario())) {
 			throw new RuntimeException("Usuário com esse email já existe");
