@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 docs/db/Modelo.mwb.bak
+/.apt_generated_tests/
