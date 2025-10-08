@@ -15,7 +15,7 @@ public class FuncionarioDto {
 	private int idFuncionario;
 
 	@NotBlank(message = "Nome não pode ser vazio")
-	@Size(max = 100, message = "Nome inválido")
+	@Size(max = 100, message = "Nome não pode ultrapassar 100 caracteres")
 	private String nome;
 
 	@NotBlank(message = "Email não pode ser vazio")
