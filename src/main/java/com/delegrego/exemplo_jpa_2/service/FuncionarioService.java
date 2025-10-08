@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 
 // Indica que esta classe é um serviço do Spring (camada de lógica de negócio)
 @Service
+
 // Habilita a validação de métodos nesta classe
 @Validated
 public class FuncionarioService {
@@ -101,7 +102,8 @@ public class FuncionarioService {
 				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
 
 		// TODO: Refatorar?
-		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(), funcionarioDto.getIdFuncionario())) {
+		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(),
+				funcionarioDto.getIdFuncionario())) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
