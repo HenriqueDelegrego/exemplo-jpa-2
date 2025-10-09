@@ -47,7 +47,6 @@ public class FuncionarioService {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 
-		// TODO: Para a solução inicial, fazer isso ou popular somente o id de um dptoEntity vazio?
 		DepartamentoEntity departamentoEntity = departamentoRepo.findById(funcionarioDto.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
@@ -97,7 +96,7 @@ public class FuncionarioService {
 	 *                          funcionário com o mesmo email, ou se o departamento
 	 *                          não existir.
 	 */
-	public void atualizarFuncionario(FuncionarioDto funcionarioDto) {
+	public void atualizarFuncionario(@Valid FuncionarioDto funcionarioDto) {
 
 		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(funcionarioDto.getIdFuncionario())
 				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
