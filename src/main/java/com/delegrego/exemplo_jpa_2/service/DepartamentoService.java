@@ -78,7 +78,7 @@ public class DepartamentoService {
 	 */
 
 	// TODO: Fazer com que venha um id como parâmetro
-	public void atualizarDepartamento(DepartamentoDto departamentoDto) {
+	public void atualizarDepartamento(@Valid DepartamentoDto departamentoDto) {
 
 		DepartamentoEntity departamentoEntity = departamentoRepo.findById(departamentoDto.getIdDepartamento())
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
