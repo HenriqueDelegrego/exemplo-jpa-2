@@ -14,6 +14,12 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
+	/**
+	 * Verifica se existe um funcionário com o email especificado.
+	 * 
+	 * @param email - Email a ser verificado.
+	 * @return true se existir um funcionário com o email, false caso contrário.
+	 */
 	boolean existsByEmail(String email);
 
 	/**
