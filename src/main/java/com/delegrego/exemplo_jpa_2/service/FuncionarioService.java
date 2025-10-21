@@ -43,7 +43,7 @@ public class FuncionarioService {
 	 */
 	public void cadastrarFuncionario(@Valid FuncionarioDto funcionarioDto) {
 
-		if (funcionarioRepo.findByEmail(funcionarioDto.getEmail()).isPresent()) {
+		if (funcionarioRepo.existsByEmail(funcionarioDto.getEmail())) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 

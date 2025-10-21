@@ -1,7 +1,5 @@
 package com.delegrego.exemplo_jpa_2.repo;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.delegrego.exemplo_jpa_2.entity.FuncionarioEntity;
@@ -16,13 +14,7 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
-	/**
-	 * Busca um funcionário pelo email.
-	 * 
-	 * @param email - Email do funcionário a ser buscado.
-	 * @return Optional contendo o funcionário, se encontrado.
-	 */
-	Optional<FuncionarioEntity> findByEmail(String email);
+	boolean existsByEmail(String email);
 
 	/**
 	 * Verifica se existe um funcionário com o mesmo email, excluindo um ID
