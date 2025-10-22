@@ -7,28 +7,28 @@ import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 /**
- * DTO (Data Transfer Object) para representar um funcionário.
- * Inclui validações para garantir que os dados estejam corretos.
+ * DTO (Data Transfer Object) para representar um funcionário. Inclui validações
+ * para garantir que os dados estejam corretos.
  */
 public class FuncionarioDto {
 
 	private int idFuncionario;
 
-	@NotBlank(message = "Nome não pode ser vazio")
-	@Size(max = 100, message = "Nome não pode ultrapassar 100 caracteres")
+	@NotBlank(message = "Nome do funcionário não pode ser vazio")
+	@Size(max = 100, message = "Nome do funcionário não pode ultrapassar 100 caracteres")
 	private String nome;
 
-	@NotBlank(message = "Email não pode ser vazio")
-	@Size(max = 50, message = "Email não pode ultrapassar 50 caracteres")
-	@Email(message = "Email inválido")
+	@NotBlank(message = "Email do funcionário não pode ser vazio")
+	@Size(max = 50, message = "Email do funcionário não pode ultrapassar 50 caracteres")
+	@Email(message = "Email do funcionário inválido")
 	private String email;
 
-	@NotBlank(message = "Senha não pode ser vazia")
-	@Size(max = 50, message = "Senha não pode ultrapassar 50 caracteres")
+	@NotBlank(message = "Senha do funcionário não pode ser vazia")
+	@Size(max = 50, message = "Senha do funcionário não pode ultrapassar 50 caracteres")
 	private String senha;
 
-	@Digits(integer = 10, fraction = 2, message = "Salário inválido")
-	@PositiveOrZero(message = "Salário não pode ser negativo")
+	@Digits(integer = 10, fraction = 2, message = "Salário do funcionário inválido")
+	@PositiveOrZero(message = "Salário do funcionário não pode ser negativo")
 	private double salario;
 
 	private int idDepartamento;
