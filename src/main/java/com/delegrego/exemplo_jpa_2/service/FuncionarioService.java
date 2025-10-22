@@ -89,11 +89,12 @@ public class FuncionarioService {
 	}
 
 	/**
-	 * Update: Atualiza as informações de um funcionário existente.
+	 * Update: Atualiza os dados de um funcionário existente.
 	 * 
-	 * @param funcionarioDto - O funcionário com as informações atualizadas.
-	 * @throws RuntimeException se o funcionário não existir, se já existir outro
-	 *                          funcionário com o mesmo email, ou se o departamento
+	 * @param id             - O ID do funcionário a ser atualizado.
+	 * @param funcionarioDto - Os novos dados do funcionário.
+	 * @throws RuntimeException se o funcionário não existir, se já existir um
+	 *                          funcionário com o mesmo email ou se o departamento
 	 *                          não existir.
 	 */
 	public void atualizarFuncionario(int id, @Valid FuncionarioDto funcionarioDto) {

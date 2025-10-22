@@ -71,9 +71,10 @@ public class DepartamentoService {
 	}
 
 	/**
-	 * Update: Atualiza as informações de um departamento existente.
+	 * Update: Atualiza os dados de um departamento existente.
 	 * 
-	 * @param departamentoDto - O departamento com as informações atualizadas.
+	 * @param id              - O ID do departamento a ser atualizado.
+	 * @param departamentoDto - Os novos dados do departamento.
 	 * @throws RuntimeException se o departamento não existir.
 	 */
 	public void atualizarDepartamento(int id, @Valid DepartamentoDto departamentoDto) {
