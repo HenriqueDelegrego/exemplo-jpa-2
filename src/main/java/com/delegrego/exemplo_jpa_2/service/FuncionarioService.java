@@ -96,13 +96,12 @@ public class FuncionarioService {
 	 *                          funcionário com o mesmo email, ou se o departamento
 	 *                          não existir.
 	 */
-	public void atualizarFuncionario(@Valid FuncionarioDto funcionarioDto) {
+	public void atualizarFuncionario(int id, @Valid FuncionarioDto funcionarioDto) {
 
-		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(funcionarioDto.getIdFuncionario())
+		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(id)
 				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
 
-		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(),
-				funcionarioDto.getIdFuncionario())) {
+		if (funcionarioRepo.existsByEmailAndIdFuncionarioNot(funcionarioDto.getEmail(), id)) {
 			throw new RuntimeException("Usuário com esse email já existe");
 		}
 

@@ -76,11 +76,9 @@ public class DepartamentoService {
 	 * @param departamentoDto - O departamento com as informações atualizadas.
 	 * @throws RuntimeException se o departamento não existir.
 	 */
+	public void atualizarDepartamento(int id, @Valid DepartamentoDto departamentoDto) {
 
-	// TODO: Fazer com que venha um id como parâmetro
-	public void atualizarDepartamento(@Valid DepartamentoDto departamentoDto) {
-
-		DepartamentoEntity departamentoEntity = departamentoRepo.findById(departamentoDto.getIdDepartamento())
+		DepartamentoEntity departamentoEntity = departamentoRepo.findById(id)
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
 		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());

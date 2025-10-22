@@ -46,9 +46,8 @@ public class Controller implements CommandLineRunner {
 
 		// Update
 		DepartamentoDto departamentoAtualizado = new DepartamentoDto();
-		departamentoAtualizado.setIdDepartamento(3);
 		departamentoAtualizado.setNmDepartamento("Recursos Humanos");
-		departamentoService.atualizarDepartamento(departamentoAtualizado);
+		departamentoService.atualizarDepartamento(3, departamentoAtualizado);
 
 		// Delete
 		departamentoService.deletarDepartamento(3);
@@ -71,13 +70,12 @@ public class Controller implements CommandLineRunner {
 		// Update
 
 		FuncionarioDto funcionarioAtualizado = new FuncionarioDto();
-		funcionarioAtualizado.setIdFuncionario(1);
 		funcionarioAtualizado.setNome("João Da Silva");
 		funcionarioAtualizado.setEmail("novojoao@email.com");
 		funcionarioAtualizado.setSenha("senha_joao_novo");
 		funcionarioAtualizado.setSalario(5500);
 		funcionarioAtualizado.setIdDepartamento(2);
-		funcionarioService.atualizarFuncionario(funcionarioAtualizado);
+		funcionarioService.atualizarFuncionario(1, funcionarioAtualizado);
 
 		// Delete
 		funcionarioService.deletarFuncionario(1);
