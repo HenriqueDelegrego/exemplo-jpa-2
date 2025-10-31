@@ -44,6 +44,7 @@ public class DepartamentoService {
 
 		DepartamentoEntity departamentoEntity = new DepartamentoEntity();
 		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
+
 		departamentoRepo.save(departamentoEntity);
 
 	}
@@ -54,6 +55,7 @@ public class DepartamentoService {
 	 * @return Uma lista de departamentos.
 	 */
 	public List<DepartamentoDto> listarDepartamentos() {
+
 		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo.findAll();
 
 		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
@@ -83,6 +85,7 @@ public class DepartamentoService {
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
 		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
+
 		departamentoRepo.save(departamentoEntity);
 
 	}
