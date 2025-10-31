@@ -76,7 +76,7 @@ public class FuncionarioService {
 			FuncionarioDto funcionarioDto = new FuncionarioDto();
 			funcionarioDto.setIdFuncionario(f.getIdFuncionario());
 			funcionarioDto.setNome(f.getNome());
-			funcionarioDto.setEmail(f.getNome());
+			funcionarioDto.setEmail(f.getEmail());
 			funcionarioDto.setSenha(f.getSenha());
 			funcionarioDto.setSalario(f.getSalario());
 			funcionarioDto.setIdDepartamento(f.getDepartamento().getIdDepartamento());
