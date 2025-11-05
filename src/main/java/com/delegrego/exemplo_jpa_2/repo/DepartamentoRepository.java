@@ -11,5 +11,6 @@ import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
  * (Integer).
  */
 public interface DepartamentoRepository extends JpaRepository<DepartamentoEntity, Integer> {
+	// TODO: Implementar pesquisa parcial?
 
 }

@@ -14,6 +14,8 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
+	// TODO: Implementar pesquisa parcial?
+
 	/**
 	 * Verifica se existe um funcionário com o email especificado.
 	 * 
