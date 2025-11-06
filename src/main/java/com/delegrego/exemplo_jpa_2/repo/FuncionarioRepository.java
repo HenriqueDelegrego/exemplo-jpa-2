@@ -1,5 +1,7 @@
 package com.delegrego.exemplo_jpa_2.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.delegrego.exemplo_jpa_2.entity.FuncionarioEntity;
@@ -14,7 +16,7 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
-	// TODO: Implementar pesquisa parcial?
+	List<FuncionarioEntity> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(String nome, String email);
 
 	/**
 	 * Verifica se existe um funcionário com o email especificado.
