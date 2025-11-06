@@ -88,6 +88,29 @@ public class FuncionarioService {
 		return listaFuncionarioDto;
 	}
 
+	public List<FuncionarioDto> pesquisarFuncionarios(String pesquisa) {
+
+		List<FuncionarioEntity> listaFuncionarioEntity = funcionarioRepo
+				.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(pesquisa, pesquisa);
+
+		List<FuncionarioDto> listaFuncionarioDto = new ArrayList<>();
+
+		for (FuncionarioEntity f : listaFuncionarioEntity) {
+			FuncionarioDto funcionarioDto = new FuncionarioDto();
+			funcionarioDto.setIdFuncionario(f.getIdFuncionario());
+			funcionarioDto.setNome(f.getNome());
+			funcionarioDto.setEmail(f.getEmail());
+			funcionarioDto.setSenha(f.getSenha());
+			funcionarioDto.setSalario(f.getSalario());
+			funcionarioDto.setIdDepartamento(f.getDepartamento().getIdDepartamento());
+
+			listaFuncionarioDto.add(funcionarioDto);
+
+		}
+
+		return listaFuncionarioDto;
+	}
+
 	/**
 	 * Update: Atualiza os dados de um funcionário existente.
 	 * 
