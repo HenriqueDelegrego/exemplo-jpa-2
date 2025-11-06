@@ -1,5 +1,7 @@
 package com.delegrego.exemplo_jpa_2.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
@@ -11,6 +13,7 @@ import com.delegrego.exemplo_jpa_2.entity.DepartamentoEntity;
  * (Integer).
  */
 public interface DepartamentoRepository extends JpaRepository<DepartamentoEntity, Integer> {
-	// TODO: Implementar pesquisa parcial?
+
+	List<DepartamentoEntity> findByNmDepartamentoContainingIgnoreCase(String nomeDepartamento);
 
 }
