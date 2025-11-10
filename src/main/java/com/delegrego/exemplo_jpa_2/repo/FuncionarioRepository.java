@@ -1,5 +1,7 @@
 package com.delegrego.exemplo_jpa_2.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.delegrego.exemplo_jpa_2.entity.FuncionarioEntity;
@@ -14,7 +16,15 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
-	// TODO: Implementar pesquisa parcial?
+	/**
+	 * Busca funcionários cujo nome ou email contenham a string especificada,
+	 * ignorando maiúsculas e minúsculas.
+	 * 
+	 * @param nome  - Parte do nome a ser buscada.
+	 * @param email - Parte do email a ser buscada.
+	 * @return Lista de funcionários que correspondem aos critérios de busca.
+	 */
+	List<FuncionarioEntity> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(String nome, String email);
 
 	/**
 	 * Verifica se existe um funcionário com o email especificado.

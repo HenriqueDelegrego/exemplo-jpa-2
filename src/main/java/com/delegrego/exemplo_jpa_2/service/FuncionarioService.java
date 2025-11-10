@@ -89,6 +89,35 @@ public class FuncionarioService {
 	}
 
 	/**
+	 * Read pesquisa parcial: Pesquisa funcionários pelo nome ou email.
+	 * 
+	 * @param pesquisa - O termo de pesquisa (nome ou email).
+	 * @return Uma lista de funcionários que correspondem ao termo de pesquisa.
+	 */
+	public List<FuncionarioDto> pesquisarFuncionarios(String pesquisa) {
+
+		List<FuncionarioEntity> listaFuncionarioEntity = funcionarioRepo
+				.findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(pesquisa, pesquisa);
+
+		List<FuncionarioDto> listaFuncionarioDto = new ArrayList<>();
+
+		for (FuncionarioEntity f : listaFuncionarioEntity) {
+			FuncionarioDto funcionarioDto = new FuncionarioDto();
+			funcionarioDto.setIdFuncionario(f.getIdFuncionario());
+			funcionarioDto.setNome(f.getNome());
+			funcionarioDto.setEmail(f.getEmail());
+			funcionarioDto.setSenha(f.getSenha());
+			funcionarioDto.setSalario(f.getSalario());
+			funcionarioDto.setIdDepartamento(f.getDepartamento().getIdDepartamento());
+
+			listaFuncionarioDto.add(funcionarioDto);
+
+		}
+
+		return listaFuncionarioDto;
+	}
+
+	/**
 	 * Update: Atualiza os dados de um funcionário existente.
 	 * 
 	 * @param id             - O ID do funcionário a ser atualizado.

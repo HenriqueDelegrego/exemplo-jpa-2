@@ -13,6 +13,8 @@ import com.delegrego.exemplo_jpa_2.repo.DepartamentoRepository;
 import com.delegrego.exemplo_jpa_2.repo.FuncionarioRepository;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 /**
  * Serviço para gerenciar operações relacionadas a Departamentos. Inclui métodos
@@ -57,6 +59,32 @@ public class DepartamentoService {
 	public List<DepartamentoDto> listarDepartamentos() {
 
 		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo.findAll();
+
+		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
+
+		for (DepartamentoEntity d : listaDepartamentoEntity) {
+			DepartamentoDto departamentoDto = new DepartamentoDto();
+
+			departamentoDto.setIdDepartamento(d.getIdDepartamento());
+			departamentoDto.setNmDepartamento(d.getNmDepartamento());
+
+			listaDepartamentoDto.add(departamentoDto);
+		}
+
+		return listaDepartamentoDto;
+	}
+
+	/**
+	 * Read pesquisa parcial: Pesquisa departamentos pelo nome, permitindo buscas
+	 * parciais e ignorando maiúsculas e minúsculas.
+	 * 
+	 * @param pesquisa - A string de pesquisa para o nome do departamento.
+	 * @return Uma lista de departamentos que correspondem à pesquisa.
+	 */
+	public List<DepartamentoDto> pesquisarDepartamentos(@NotBlank @Size(max = 50) String pesquisa) {
+
+		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo
+				.findByNmDepartamentoContainingIgnoreCase(pesquisa);
 
 		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
 
