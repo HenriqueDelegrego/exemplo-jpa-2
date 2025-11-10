@@ -88,6 +88,12 @@ public class FuncionarioService {
 		return listaFuncionarioDto;
 	}
 
+	/**
+	 * Read pesquisa parcial: Pesquisa funcionários pelo nome ou email.
+	 * 
+	 * @param pesquisa - O termo de pesquisa (nome ou email).
+	 * @return Uma lista de funcionários que correspondem ao termo de pesquisa.
+	 */
 	public List<FuncionarioDto> pesquisarFuncionarios(String pesquisa) {
 
 		List<FuncionarioEntity> listaFuncionarioEntity = funcionarioRepo

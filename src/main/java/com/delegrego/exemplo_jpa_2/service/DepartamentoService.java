@@ -74,6 +74,13 @@ public class DepartamentoService {
 		return listaDepartamentoDto;
 	}
 
+	/**
+	 * Read pesquisa parcial: Pesquisa departamentos pelo nome, permitindo buscas
+	 * parciais e ignorando maiúsculas e minúsculas.
+	 * 
+	 * @param pesquisa - A string de pesquisa para o nome do departamento.
+	 * @return Uma lista de departamentos que correspondem à pesquisa.
+	 */
 	public List<DepartamentoDto> pesquisarDepartamentos(@NotBlank @Size(max = 50) String pesquisa) {
 
 		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo

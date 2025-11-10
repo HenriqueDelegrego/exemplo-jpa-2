@@ -16,6 +16,14 @@ public interface FuncionarioRepository extends JpaRepository<FuncionarioEntity, 
 
 	// Derived queries
 
+	/**
+	 * Busca funcionários cujo nome ou email contenham a string especificada,
+	 * ignorando maiúsculas e minúsculas.
+	 * 
+	 * @param nome  - Parte do nome a ser buscada.
+	 * @param email - Parte do email a ser buscada.
+	 * @return Lista de funcionários que correspondem aos critérios de busca.
+	 */
 	List<FuncionarioEntity> findByNomeContainingIgnoreCaseOrEmailContainingIgnoreCase(String nome, String email);
 
 	/**
