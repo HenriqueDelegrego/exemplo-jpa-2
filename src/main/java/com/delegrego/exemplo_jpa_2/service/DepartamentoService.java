@@ -101,6 +101,27 @@ public class DepartamentoService {
 	}
 
 	/**
+	 * Read por ID: Obtém os detalhes de um departamento específico pelo seu ID.
+	 * 
+	 * @param id - O ID do departamento a ser obtido.
+	 * @return Os detalhes do departamento.
+	 * @throws RuntimeException se o departamento não existir.
+	 */
+	public DepartamentoDto obterDepartamentoPorId(int id) {
+
+		DepartamentoEntity departamentoEntity = departamentoRepo.findById(id)
+				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
+
+		DepartamentoDto departamentoDto = new DepartamentoDto();
+
+		departamentoDto.setIdDepartamento(departamentoEntity.getIdDepartamento());
+		departamentoDto.setNmDepartamento(departamentoEntity.getNmDepartamento());
+
+		return departamentoDto;
+
+	}
+
+	/**
 	 * Update: Atualiza os dados de um departamento existente.
 	 * 
 	 * @param id              - O ID do departamento a ser atualizado.

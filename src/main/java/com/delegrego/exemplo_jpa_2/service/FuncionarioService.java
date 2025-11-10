@@ -118,6 +118,30 @@ public class FuncionarioService {
 	}
 
 	/**
+	 * Read por ID: Obtém os detalhes de um funcionário específico pelo seu ID.
+	 * 
+	 * @param id - O ID do funcionário a ser obtido.
+	 * @return Os detalhes do funcionário.
+	 * @throws RuntimeException se o funcionário não existir.
+	 */
+	public FuncionarioDto obterFuncionarioPorId(int id) {
+
+		FuncionarioEntity funcionarioEntity = funcionarioRepo.findById(id)
+				.orElseThrow(() -> new RuntimeException("Funcionário não existe"));
+
+		FuncionarioDto funcionarioDto = new FuncionarioDto();
+
+		funcionarioDto.setIdFuncionario(funcionarioEntity.getIdFuncionario());
+		funcionarioDto.setNome(funcionarioEntity.getNome());
+		funcionarioDto.setEmail(funcionarioEntity.getEmail());
+		funcionarioDto.setSenha(funcionarioEntity.getSenha());
+		funcionarioDto.setSalario(funcionarioEntity.getSalario());
+		funcionarioDto.setIdDepartamento(funcionarioEntity.getDepartamento().getIdDepartamento());
+
+		return funcionarioDto;
+	}
+
+	/**
 	 * Update: Atualiza os dados de um funcionário existente.
 	 * 
 	 * @param id             - O ID do funcionário a ser atualizado.
