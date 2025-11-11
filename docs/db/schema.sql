@@ -1,6 +1,6 @@
 CREATE TABLE departamento (
 	id_departamento INTEGER AUTO_INCREMENT,
-	nm_departamento VARCHAR(50) NOT NULL,
+	nome_departamento VARCHAR(50) NOT NULL,
 	PRIMARY KEY(id_departamento)
 );
 
