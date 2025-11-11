@@ -45,7 +45,7 @@ public class DepartamentoService {
 	public void cadastrarDepartamento(@Valid DepartamentoDto departamentoDto) {
 
 		DepartamentoEntity departamentoEntity = new DepartamentoEntity();
-		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
+		departamentoEntity.setNomeDepartamento(departamentoDto.getNomeDepartamento());
 
 		departamentoRepo.save(departamentoEntity);
 
@@ -66,7 +66,7 @@ public class DepartamentoService {
 			DepartamentoDto departamentoDto = new DepartamentoDto();
 
 			departamentoDto.setIdDepartamento(d.getIdDepartamento());
-			departamentoDto.setNmDepartamento(d.getNmDepartamento());
+			departamentoDto.setNomeDepartamento(d.getNomeDepartamento());
 
 			listaDepartamentoDto.add(departamentoDto);
 		}
@@ -84,7 +84,7 @@ public class DepartamentoService {
 	public List<DepartamentoDto> pesquisarDepartamentos(@NotBlank @Size(max = 50) String pesquisa) {
 
 		List<DepartamentoEntity> listaDepartamentoEntity = departamentoRepo
-				.findByNmDepartamentoContainingIgnoreCase(pesquisa);
+				.findByNomeDepartamentoContainingIgnoreCase(pesquisa);
 
 		List<DepartamentoDto> listaDepartamentoDto = new ArrayList<>();
 
@@ -92,7 +92,7 @@ public class DepartamentoService {
 			DepartamentoDto departamentoDto = new DepartamentoDto();
 
 			departamentoDto.setIdDepartamento(d.getIdDepartamento());
-			departamentoDto.setNmDepartamento(d.getNmDepartamento());
+			departamentoDto.setNomeDepartamento(d.getNomeDepartamento());
 
 			listaDepartamentoDto.add(departamentoDto);
 		}
@@ -115,7 +115,7 @@ public class DepartamentoService {
 		DepartamentoDto departamentoDto = new DepartamentoDto();
 
 		departamentoDto.setIdDepartamento(departamentoEntity.getIdDepartamento());
-		departamentoDto.setNmDepartamento(departamentoEntity.getNmDepartamento());
+		departamentoDto.setNomeDepartamento(departamentoEntity.getNomeDepartamento());
 
 		return departamentoDto;
 
@@ -133,7 +133,7 @@ public class DepartamentoService {
 		DepartamentoEntity departamentoEntity = departamentoRepo.findById(id)
 				.orElseThrow(() -> new RuntimeException("Departamento não existe"));
 
-		departamentoEntity.setNmDepartamento(departamentoDto.getNmDepartamento());
+		departamentoEntity.setNomeDepartamento(departamentoDto.getNomeDepartamento());
 
 		departamentoRepo.save(departamentoEntity);
 

@@ -31,12 +31,12 @@ public class DepartamentoEntity {
 	@Column(name = "id_departamento")
 	private int idDepartamento;
 
-	@Column(name = "nm_departamento")
-	private String nmDepartamento;
+	@Column(name = "nome_departamento")
+	private String nomeDepartamento;
 
-	public DepartamentoEntity(int idDepartamento, String nmDepartamento) {
+	public DepartamentoEntity(int idDepartamento, String nomeDepartamento) {
 		this.idDepartamento = idDepartamento;
-		this.nmDepartamento = nmDepartamento;
+		this.nomeDepartamento = nomeDepartamento;
 	}
 
 	// Construtor padrão (necessário para o JPA)
@@ -52,16 +52,16 @@ public class DepartamentoEntity {
 		this.idDepartamento = idDepartamento;
 	}
 
-	public String getNmDepartamento() {
-		return nmDepartamento;
+	public String getNomeDepartamento() {
+		return nomeDepartamento;
 	}
 
-	public void setNmDepartamento(String nmDepartamento) {
-		this.nmDepartamento = nmDepartamento;
+	public void setNomeDepartamento(String nomeDepartamento) {
+		this.nomeDepartamento = nomeDepartamento;
 	}
 
 	@Override
 	public String toString() {
-		return "\nID do departamento: " + idDepartamento + "\nNome: " + nmDepartamento + "\n";
+		return "\nID do departamento: " + idDepartamento + "\nNome: " + nomeDepartamento + "\n";
 	}
 }

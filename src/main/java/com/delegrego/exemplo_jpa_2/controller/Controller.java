@@ -30,15 +30,15 @@ public class Controller implements CommandLineRunner {
 
 		// Create
 		DepartamentoDto departamentoNovo = new DepartamentoDto();
-		departamentoNovo.setNmDepartamento("Financeiro");
+		departamentoNovo.setNomeDepartamento("Financeiro");
 		departamentoService.cadastrarDepartamento(departamentoNovo);
 
 		DepartamentoDto departamentoNovo2 = new DepartamentoDto();
-		departamentoNovo2.setNmDepartamento("Desenvolvimento");
+		departamentoNovo2.setNomeDepartamento("Desenvolvimento");
 		departamentoService.cadastrarDepartamento(departamentoNovo2);
 
 		DepartamentoDto departamentoNovo3 = new DepartamentoDto();
-		departamentoNovo3.setNmDepartamento("RH");
+		departamentoNovo3.setNomeDepartamento("RH");
 		departamentoService.cadastrarDepartamento(departamentoNovo3);
 
 		// Read
@@ -46,7 +46,7 @@ public class Controller implements CommandLineRunner {
 
 		// Update
 		DepartamentoDto departamentoAtualizado = new DepartamentoDto();
-		departamentoAtualizado.setNmDepartamento("Recursos Humanos");
+		departamentoAtualizado.setNomeDepartamento("Recursos Humanos");
 		departamentoService.atualizarDepartamento(3, departamentoAtualizado);
 
 		// Delete

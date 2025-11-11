@@ -13,15 +13,15 @@ public class DepartamentoDto {
 
 	@NotBlank(message = "Nome do departamento não pode ser vazio")
 	@Size(max = 50, message = "Departamento não pode ultrapassar 50 caracteres")
-	private String nmDepartamento;
+	private String nomeDepartamento;
 
 	public DepartamentoDto() {
 
 	}
 
-	public DepartamentoDto(int idDepartamento, String nmDepartamento) {
+	public DepartamentoDto(int idDepartamento, String nomeDepartamento) {
 		this.idDepartamento = idDepartamento;
-		this.nmDepartamento = nmDepartamento;
+		this.nomeDepartamento = nomeDepartamento;
 	}
 
 	public int getIdDepartamento() {
@@ -32,17 +32,17 @@ public class DepartamentoDto {
 		this.idDepartamento = idDepartamento;
 	}
 
-	public String getNmDepartamento() {
-		return nmDepartamento;
+	public String getNomeDepartamento() {
+		return nomeDepartamento;
 	}
 
-	public void setNmDepartamento(String nmDepartamento) {
-		this.nmDepartamento = nmDepartamento;
+	public void setNomeDepartamento(String nomeDepartamento) {
+		this.nomeDepartamento = nomeDepartamento;
 	}
 
 	@Override
 	public String toString() {
-		return "DepartamentoDto [idDepartamento=" + idDepartamento + ", nmDepartamento=" + nmDepartamento + "]";
+		return "DepartamentoDto [idDepartamento=" + idDepartamento + ", nomeDepartamento=" + nomeDepartamento + "]";
 	}
 
 }
